@@ -20,8 +20,13 @@ namespace Unict
             });
             // start the task
             task1.Start();
+
+           /* task1.Wait(); //Il main thread si blocca finchè il thread non completa
+            //Modo alternativo
+            */
             // write out the result
-            Console.WriteLine("Result 1: {0}", task1.Result);
+            Console.WriteLine("Result 1: {0}", task1.Result); 
+            //Quando chiamiamo result il main thread si blocca in attesa che il thread produca il risultato
             
             
             // create the task using state

@@ -8,12 +8,13 @@ namespace Unict
     {
         public static void Run()
         {
-            Task.Factory.StartNew(() =>
+            Task t= Task.Factory.StartNew(() => //Con questa riga di codice riusciamo a creare il task e a runnarlo subito
             {
                 Console.WriteLine("Hello World");
             });
-
-            //Thread.Sleep(1000);
+            Console.WriteLine(" Status = {0}",t.Status);
+            Thread.Sleep(1000); //Mettendo quest'istruzione abbiamo bloccato il thread principale
+            //In questo modo siamo sicuri che il task HelloWorld parta prima della scritta del main program
 
         }
     }

@@ -29,7 +29,7 @@ namespace Unict
             // and wrap the method in a try...catch block
             try
             {
-                Task.WaitAll(task1, task2, task3);
+                Task.WaitAll(task1, task2, task3); //Attende che i task completino
             }
             catch (AggregateException ex)
             {

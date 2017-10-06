@@ -22,7 +22,8 @@ namespace Unict
                     if (token.IsCancellationRequested)
                     {
                         Console.WriteLine("Task cancel detected");
-                        throw new OperationCanceledException(token);
+                         throw new OperationCanceledException(token);
+                       // break;
                     }
                     else
                     {
@@ -52,7 +53,6 @@ namespace Unict
             Console.WriteLine("Cancelling task");
 
             tokenSource.Cancel();
-
 
         }
     }

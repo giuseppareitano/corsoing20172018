@@ -11,6 +11,7 @@ namespace Unict
         {
             // create a shared collection
             Queue<int> sharedQueue = new Queue<int>();
+            
             // populate the collection with items to process
             for (int i = 0; i < 1000; i++)
             {
@@ -24,22 +25,30 @@ namespace Unict
             {
                 // create the new task
                 tasks[i] = new Task(() => {
-
+                    ReaderWriterLockSlim rwlock = new ReaderWriterLockSlim();
                     //=====================================
                     // Race condition
                     //=====================================
-                    while (sharedQueue.Count > 0)
+
+                    while (true)
                     {
                         // take an item from the queue
+                        rwlock.EnterReadLock();
+                        int queueCount = sharedQueue.Count;
+                        rwlock.ExitReadLock();
+                        if (queueCount == 0) break;
+                        
                         try
                         {
                             //=====================================
                             // Race condition
                             //=====================================
-
+                            rwlock.EnterWriteLock();
                             int item = sharedQueue.Dequeue();
+                            rwlock.ExitWriteLock();
                             // increment the count of items processed
                             Interlocked.Increment(ref itemCount);
+                            
                         }
                         catch (Exception)
                         {

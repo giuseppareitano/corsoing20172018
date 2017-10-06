@@ -19,17 +19,17 @@ namespace Unict
             //E09_PauseToken.Run();
             //E10_HandlingTaskExceptions.Run();
             //E11_ReareWriterLock.Run();
-            //E12_RaceConditionQueue.Run();
+            E12_RaceConditionQueue.Run();
             //E13_RaceConditionQueueSolved.Run();
             //E14_Barrier.Run();
             //E15_ProducerConsumerProblem.Run();
             //E16_ProducerConsumerSolution.Run();
             //E17_IOBoundOperation.Run();
-            E18_AsyncAwaitIOBound.Run();
+            //E18_AsyncAwaitIOBound.Run();
 
             // wait for input before exiting
             Console.WriteLine("Main method complete. Press enter to finish.");
-            Console.ReadLine();
+            Console.ReadLine(); //Istruzione che richiede l'input dell'utente
         }
     }
 }

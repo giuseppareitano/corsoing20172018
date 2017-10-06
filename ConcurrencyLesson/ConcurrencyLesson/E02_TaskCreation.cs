@@ -20,7 +20,7 @@ namespace Unict
             // use a lambda expression and a named method
             Task task3 = new Task(() => printMessage());
 
-            // use a lambda expression and an anonymous method
+            // use a anonymous expression and an anonymous method
             Task task4 = new Task(() =>
             {
                 printMessage();
@@ -29,6 +29,8 @@ namespace Unict
             task2.Start();
             task3.Start();
             task4.Start();
+
+            //Task.WaitAll(task1,task2,task3,task4);
         }
 
         static void printMessage()

@@ -27,8 +27,17 @@ namespace Unict
             task2.Start();
             task3.Start();
             task4.Start();
+
+            Thread.Sleep(1000);
+
+            /*Console.WriteLine("Message: {0}", task4.Status);
+
+            task4.Start(); 
+            Mostra le eccezioni sollevate nel momento in cui andiamo a startare un task già eseguito
+             */
         }
-        static void printMessage(object message)
+        static void printMessage(object message) //Questo oggetto lo si passa nel momento in cui viene creato il task
+            //Questo mi serve ad avere task con lo stesso workload ma parametrizzato
         {
             Console.WriteLine("Message: {0}", message);
         }
