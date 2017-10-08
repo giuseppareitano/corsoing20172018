@@ -30,7 +30,7 @@ namespace Unict
             task3.Start();
             task4.Start();
 
-            //Task.WaitAll(task1,task2,task3,task4);
+            Task.WaitAll(task1,task2,task3,task4);
         }
 
         static void printMessage()

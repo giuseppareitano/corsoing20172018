@@ -15,7 +15,7 @@ namespace Unict
             Console.WriteLine(" Status = {0}",t.Status);
             Thread.Sleep(1000); //Mettendo quest'istruzione abbiamo bloccato il thread principale
             //In questo modo siamo sicuri che il task HelloWorld parta prima della scritta del main program
-
+            Console.WriteLine("Status = {0}",t.Status);
         }
     }
 }

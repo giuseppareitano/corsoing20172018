@@ -9,8 +9,7 @@ namespace Unict
         public static void Run()
         {
             // create the cancellation token source
-            CancellationTokenSource tokenSource
-            = new CancellationTokenSource();
+            CancellationTokenSource tokenSource = new CancellationTokenSource();
             // create the cancellation token
             CancellationToken token = tokenSource.Token;
             // create the tasks

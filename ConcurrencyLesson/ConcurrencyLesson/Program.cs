@@ -14,12 +14,12 @@ namespace Unict
             //E04_CreatingSeveralTasks.Run();
             //E05_TaskResult.Run();
             //E06_TaskCancellationByPolling.Run();
-            //E07_MultipleTaskCancellation.Run();
+            E07_MultipleTaskCancellation.Run();
             //E08_CompositecacellationToken.Run();
             //E09_PauseToken.Run();
             //E10_HandlingTaskExceptions.Run();
             //E11_ReareWriterLock.Run();
-            E12_RaceConditionQueue.Run();
+            //E12_RaceConditionQueue.Run();
             //E13_RaceConditionQueueSolved.Run();
             //E14_Barrier.Run();
             //E15_ProducerConsumerProblem.Run();

@@ -22,8 +22,8 @@ namespace Unict
                     if (token.IsCancellationRequested)
                     {
                         Console.WriteLine("Task cancel detected");
-                         throw new OperationCanceledException(token);
-                       // break;
+                         //throw new OperationCanceledException(token);
+                        break;
                     }
                     else
                     {
