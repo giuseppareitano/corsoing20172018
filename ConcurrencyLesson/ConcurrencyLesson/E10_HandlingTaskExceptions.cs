@@ -16,8 +16,8 @@ namespace Unict
                 throw exception;
             });
             Task task2 = new Task(() =>
-            {
-                throw new NullReferenceException();
+            {  
+                throw new NullReferenceException(); ;
             });
             Task task3 = new Task(() =>
             {
