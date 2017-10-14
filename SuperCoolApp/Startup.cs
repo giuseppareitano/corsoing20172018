@@ -41,18 +41,18 @@ namespace SuperCoolApp
                 app.UseExceptionHandler("/Home/Error");
             }
 
-            app.UseStaticFiles();
+            app.UseStaticFiles(); //permette di servire file statici
 
-            app.UseMvc(routes =>
+            app.UseMvc(routes => // tutta questa e una lambda expression
             {
-                routes.MapRoute(
+                routes.MapRoute( //sta instanziando il controller della pagina in quanto si tratta di una SPA
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "api",
                     template: "api/{*url}");
 
-                routes.MapSpaFallbackRoute(
+                routes.MapSpaFallbackRoute( //tutte le route che io chiedo devono essere gestite da Angular
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });

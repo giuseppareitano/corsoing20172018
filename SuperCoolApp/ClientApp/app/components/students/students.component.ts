@@ -1,5 +1,5 @@
 import { Component, Inject } from '@angular/core';
-import { Http } from '@angular/http';
+import { Http } from '@angular/http'; //modulo angular
 
 @Component({
     selector: 'students',

@@ -21,12 +21,13 @@ namespace ServiceAPI
         {
             lock (setupLock)
             {
-                using (var context = new StudentsDbContext())
+                using (var context = new StudentsDbContext()) //in questo modo utilizziamo la dependency injection
+                    //dal'esterno ci viene passata un'istanza del data access layer
                 {
                     // Create database
                     context.Database.EnsureCreated();
                 }
-                return Ok("database created");
+                return Ok("database created"); //genera una risposta http
             }
         }
 
@@ -50,11 +51,17 @@ namespace ServiceAPI
         }
 
         [HttpGet("student")]
-        public async Task<IActionResult> GetStudent([FromQuery]int id)
+        public async Task<IActionResult> GetStudent([FromQuery]int id) // ?id= nell'url
         {
             using (var context = new StudentsDbContext())
             {
-                return Ok(await context.Students.FirstOrDefaultAsync(x => x.Id == id));
+                //return Ok(await context.Students.FirstOrDefaultAsync(x => x.Id == id));
+                //qui potremmo implementare un altro tipo di response nel caso in cui non troviamo lo studente
+                var student = await context.Students.FirstOrDefaultAsync(x => x.Id == id);
+                if (student == null)
+                    return NotFound();
+                return Ok(student);
+                //nel body della response http verra restituita un'istanza di student in formato JSON
             }
         }
 
@@ -67,7 +74,7 @@ namespace ServiceAPI
 
                 await context.SaveChangesAsync();
 
-                return Ok();
+                return Ok(); //response http 200: tutto apposto!
             }
         }
 

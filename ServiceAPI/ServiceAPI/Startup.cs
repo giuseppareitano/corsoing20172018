@@ -14,6 +14,10 @@ namespace ServiceAPI
         public void Configure(IApplicationBuilder app)
         {
             app.UseMvcWithDefaultRoute();
+
+            //reflection: capacita d un programma di venire a conoscenza di come esso stesso e costruito
+            //posso conoscere per esempio le classi definite in un'applicazione a run time
+
         }
     }
 }
