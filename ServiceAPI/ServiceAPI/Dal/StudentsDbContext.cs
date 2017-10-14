@@ -12,7 +12,7 @@ namespace ServiceAPI.Dal
             => optionsBuilder
                 //.UseMySql(@"Server=localhost;database=corso;uid=corso;pwd=unict;");
                 .UseMySql(@"Server=localhost;database=corso;uid=root;");
-
+                
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

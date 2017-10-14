@@ -13,9 +13,9 @@ namespace ServiceAPI
             }
 
                 var host = new WebHostBuilder()
-                    .UseKestrel()
-                    .UseStartup<Startup>()
-                    //.UseUrls("http://localhost:6789") serve a modificare la porta di ascolto del web service che di default è 5000
+                    .UseKestrel() //configura il web server kestrel
+                    .UseStartup<Startup>() //startup e' una classe che serve a configurare il nostro ambiente di hosting
+                    //.UseUrls("http://localhost:6789") serve a modificare la porta di ascolto del web server che di default è 5000
                     .Build();
             host.Run();
             /*Task restService = host.RunAsync();
