@@ -43,16 +43,19 @@ namespace SuperCoolApp
 
             app.UseStaticFiles(); //permette di servire file statici
 
-            app.UseMvc(routes => // tutta questa e una lambda expression
+            app.UseMvc(routes => // tutta questa e una lambda expression: presento una variabile e dico cosa bisogna fare con tale variabile
             {
-                routes.MapRoute( //sta instanziando il controller della pagina in quanto si tratta di una SPA
+                routes.MapRoute( //sta istanziando il controller principale della nostra applicazione,
+                                 //che e' un oggetto che mi ritorna sempre e solo una pagina
+                                 //in quanto si tratta di una single page application
+                                 //quindi tutta la parte logica viene gestita da Angular
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-                routes.MapRoute(
+                routes.MapRoute( //route che permette di fare il pass to
                     name: "api",
                     template: "api/{*url}");
 
-                routes.MapSpaFallbackRoute( //tutte le route che io chiedo devono essere gestite da Angular
+                routes.MapSpaFallbackRoute( //tutte le route che io chiedo che non impattano quella principale devono essere gestite da Angular
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });

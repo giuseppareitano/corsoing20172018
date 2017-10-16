@@ -8,13 +8,15 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { StudentsComponent } from './components/students/students.component';
+import { CoursesComponent } from './components/courses/courses.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         HomeComponent,
-        StudentsComponent
+        StudentsComponent,
+		CoursesComponent
     ],
     imports: [
         CommonModule,
@@ -24,6 +26,7 @@ import { StudentsComponent } from './components/students/students.component';
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'students', component: StudentsComponent },
+			{ path: 'courses', component: CoursesComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
